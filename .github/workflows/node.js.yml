@@ -19,12 +19,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: checkout drun
       uses: actions/setup-node@v3
       with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-        cache-dependency-path: Offbg/fe/app.js
+        repository: Offbg
+        ref: main
+        path: Offbg/fe/build
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
